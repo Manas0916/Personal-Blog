@@ -1,12 +1,35 @@
 <%- include("partials/header"); -%> 
-<h1>Home</h1>
-<p><%= startingContent %></p>
+<div class="headerImage">
+
+<h1 class="headingText">Read, Write and Expand the World!</h1>
+<p class="headingParagraph">If you have a story to tell, knowledge or experience to share, <br> or a perspective to offer — welcome home. Here, your writing <br> can thrive in a network supported by millions of readers</p>
+
+</div>
+<h2>Compose a blog!</h2>
+
+<blockquote>
+    <p>"There’s no other place that combines such an excellent level of writing with a truly engaged and active community. Daily Journal is truly where ideas are born, shared, and spread."</p>
+</blockquote>
+
+<a href="/compose">
+    <button type="submit" name="buttonCompose" class="composeButton btn btn-success">Compose</button>
+</a>
+
 <% postContent.forEach(element => { %>
-    <h1><%= element.title %></h1>
-    <p>
-        <%= element.content.substring(0,100)+" ..." %>
-        <a href="/posts/<%=element.title%>">Read More</a>
-    </p>
+
+    <figure class="quote"> 
+         <h1><%=element.title%></h1>
+         <blockquote>
+             <p>  
+             <%=element.content.substring(0,100)+" ... "%> 
+             <a href="/posts/<%=element.title %>">Read More</a>     
+            </p> 
+        </blockquote> 
+        <figcaption>     
+            &mdash; <%=element.writer%>   
+        </figcaption>     
+    </figure>
+
 <% }); %>
    
 
